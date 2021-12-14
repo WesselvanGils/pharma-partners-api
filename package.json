@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/TheElementalDragon/pharma-partners-api/issues"
   },
-  "homepage": "https://github.com/TheElementalDragon/pharma-partners-api#readme"
+  "homepage": "https://github.com/TheElementalDragon/pharma-partners-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15"
+  }
 }
