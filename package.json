@@ -1,0 +1,19 @@
+{
+  "name": "pharma-partners-api",
+  "version": "1.0.0",
+  "description": "Het api gedeelte van het Pharma Partners project een project van Avans in periode 2.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheElementalDragon/pharma-partners-api.git"
+  },
+  "author": "Wessel van Gils, Boris Pouw, Joey de Jonge, Janne Sterk & Danine Gijben",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheElementalDragon/pharma-partners-api/issues"
+  },
+  "homepage": "https://github.com/TheElementalDragon/pharma-partners-api#readme"
+}
