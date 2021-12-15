@@ -51,8 +51,8 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 
-const authRoutes = require("./routes/authentication.route");
-const userRoutes = require("./routes/user.route");
+const authRoutes = require("./routes/authentication.routes");
+const userRoutes = require("./routes/user.routes");
 app.use('/api', authRoutes)
 app.use('/api', userRoutes)
 
