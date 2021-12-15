@@ -11,7 +11,7 @@ const PatientSchema = new Schema({
     },
 })
 
-PostSchema.plugin(mongooseFieldEncryption, { fields: ["BSN"], secret: process.env.SERVER_SECRET_MONGOOSE  });
+PatientSchema.plugin(mongooseFieldEncryption, { fields: ["BSN"], secret: process.env.SERVER_SECRET_MONGOOSE  });
 
 
 module.exports = getModel('patients', PatientSchema)

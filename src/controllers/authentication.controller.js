@@ -1,5 +1,5 @@
  const Employee = require("../models/employee.model")()
- const config = require("../config/auth.config");
+ const config = require("../configuration/authentication.config");
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");

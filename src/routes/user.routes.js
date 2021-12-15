@@ -2,23 +2,23 @@ const express = require("express");
 const router = express.Router();
 
 const crudController = require("../controllers/Crud");
-const User = require("../models/test.model")();
+const Patient = require("../models/patient.model")();
 
-const userCrudController = new crudController(User);
+const patientCrudController = new crudController(Patient);
 
 // get all users
-router.get("/users", userCrudController.getAll);
+router.get("/patients", patientCrudController.getAll);
 
 // create user
-router.post("/users", userCrudController.create);
+router.post("/patients", patientCrudController.create);
 
 // get a user
-router.get("/users/:id", userCrudController.getOne);
+router.get("/patients/:id", patientCrudController.getOne);
 
 // get a edit
-router.put("/users/:id", userCrudController.update);
+router.put("/patients/:id", patientCrudController.update);
 
 // remove a user
-router.delete("/users/:id", userCrudController.delete);
+router.delete("/patients/:id", patientCrudController.delete);
 
 module.exports = router;
