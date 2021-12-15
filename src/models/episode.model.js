@@ -5,23 +5,23 @@ const getModel = require('./model_cache')
 const EpisodeSchema = new Schema({
     publicationDate: {
         type: Date,
-        required: [true, 'A episode needs to have a prepartion.'],
+        required: [true, 'A episode needs to have a publicationDate.'],
     },
     description: {
         type: String,
-        required: [true, 'A receipt needs to have a dosage.'],
+        required: [true, 'A episode needs to have a description.'],
     },
     priorty: {
         type: Boolean,
-        required: [true, 'A receipt needs to have a publicationDate.'],
+        required: [true, 'A episode needs to have a priorty.'],
     },
     ICPC: {
         type: Number,
-        required: [true, 'A receipt needs to have a daysToTake.'],
+        required: [true, 'A episode needs to have a ICPC.'],
     },
     startDate: {
         type: Date,
-        required: [true, 'A episode needs to have a prepartion.']
+        required: [true, 'A episode needs to have a startDate.']
     },
     journal: {
         type: Schema.Types.ObjectId,
