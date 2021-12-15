@@ -52,9 +52,9 @@ app.use(morgan("dev"));
 
 
 const authRoutes = require("./routes/authentication.routes");
-const userRoutes = require("./routes/user.routes");
+const patientsRoutes = require("./routes/patient.routes");
 app.use('/api', authRoutes)
-app.use('/api', userRoutes)
+app.use('/api', patientsRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const errors = require('./errors')
