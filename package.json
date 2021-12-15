@@ -4,7 +4,9 @@
   "description": "Het api gedeelte van het Pharma Partners project een project van Avans in periode 2.2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js",
+    "start:test": "nodemon test.js",
+    "test": "mocha --watch \"./**/*spec.js\" --reporter min"
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,27 @@
   "homepage": "https://github.com/TheElementalDragon/pharma-partners-api#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.1",
-    "dotenv": "^10.0.0",
-    "nodemon": "^2.0.15"
+    "body-parser": "^1.19.0",
+    "chai-as-promised": "^7.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "mongoose-lean-getters": "^0.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.14",
+    "mongoose-autopopulate": "^0.12.3",
+    "mongoose-encryption": "^2.1.2",
+    "morgan": "^1.10.0",
+    "neo4j-driver": "^4.4.1",
+    "nodemon": "^1.18.5",
+    "swagger-ui-express": "^4.2.0",
+    "tracer": "^1.1.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^5.2.0"
   }
 }
