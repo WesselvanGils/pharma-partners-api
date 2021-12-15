@@ -41,9 +41,17 @@ const PatientSchema = new Schema({
         type: String,
         required: [true, 'A patient needs to have a phonenumber.'],
     },
+    medicalrecord: {
+        type: Schema.Types.ObjectId,
+        ref: "medicalrecords",
+        autopopulate: true,
+      },
+
+
 })
 
 PatientSchema.plugin(mongooseFieldEncryption, { fields: ["BSN", "phonenumber", "adress"], secret: process.env.SERVER_SECRET_MONGOOSE  });
 
+PatientSchema.plugin(require("mongoose-autopopulate"));
 
 module.exports = getModel('patients', PatientSchema)
