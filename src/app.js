@@ -53,8 +53,10 @@ app.use(morgan("dev"));
 
 const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
+const meetingRoutes = require("./routes/meeting.routes")
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
+app.use("/api", meetingRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const errors = require('./errors')
