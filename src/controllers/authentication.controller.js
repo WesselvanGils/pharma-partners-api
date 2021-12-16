@@ -45,56 +45,55 @@ exports.signup = (req, res) =>
 exports.info = (req, res) =>
 {
 	res.status(200).json('Welkom op de API voor de F1 avans. /api/users /api/grandprixs  /api/drivers  /api/racewins  /api/constructors').end();
-},
+}
 
-	exports.signin = (req, res) =>
-	{
-		Employee.findOne({
-			email: req.body.email
-		})
-			.exec((err, employee) =>
+exports.signin = (req, res) =>
+{
+	Employee.findOne({
+		email: req.body.email
+	})
+		.exec((err, employee) =>
+		{
+			if (err)
 			{
-				if (err)
-				{
-					res.status(500).send({
-						message: err
-					});
-					return;
-				}
-
-				if (!employee)
-				{
-					return res.status(404).send({
-						message: "Employee Not found."
-					});
-				}
-
-				let passwordIsValid = bcrypt.compareSync(
-					req.body.password,
-					employee.password
-				);
-
-				if (!passwordIsValid)
-				{
-					return res.status(401).send({
-						accessToken: null,
-						message: "Invalid Password!"
-					});
-				}
-
-				let token = jwt.sign({
-					id: employee.id
-				}, config.secret, {
-					expiresIn: 86400 // 24 hours
+				res.status(500).send({
+					message: err
 				});
+				return;
+			}
 
-				res.status(200).send({
-					_id: employee._id,
-					email: employee.email,
-					token: token
+			if (!employee)
+			{
+				return res.status(404).send({
+					message: "Employee Not found."
 				});
+			}
+
+			let passwordIsValid = bcrypt.compareSync(
+				req.body.password,
+				employee.password
+			);
+
+			if (!passwordIsValid)
+			{
+				return res.status(401).send({
+					accessToken: null,
+					message: "Invalid Password!"
+				});
+			}
+
+			let token = jwt.sign({
+				id: employee.id
+			}, config.secret, {
+				expiresIn: 86400 // 24 hours
 			});
-	};
+
+			res.status(200).send({
+				employee: employee,
+				token: token
+			});
+		});
+};
 
 
 exports.validateToken = (req, res, next) =>
@@ -145,7 +144,12 @@ exports.validateToken = (req, res, next) =>
 				{
 					logger.debug("token is valid", payload);
 					req.userId = payload.id;
-					res.status(202).json(employee)
+					res.status(202).json(
+						{
+							employee: employee,
+							token: token
+						}
+					)
 				}
 			})
 		}
