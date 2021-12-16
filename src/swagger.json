@@ -2,18 +2,18 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Yet Another Node.js Blogg Application API",
-    "description": "Yet Another Node.js Blogg Application API",
+    "title": "Pharma Partners Application API",
+    "description": "Pharma Partners Application API",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
     }
   },
   "host": "localhost:3000",
-  "basePath": "/api/v1",
+  "basePath": "/api",
   "tags": [
     {
-      "name": "employees",
+      "name": "Employee",
       "description": "API for employees in the system"
     }
   ],
@@ -27,7 +27,7 @@
     "application/json"
   ],
   "paths": {
-    "/employee": {
+    "/employees": {
       "post": {
         "tags": [
           "Employee"
@@ -39,7 +39,7 @@
             "in": "body",
             "description": "employee that we want to create",
             "schema": {
-              "$ref": "#/definitions/Employee"
+              "$ref": "#/definitions/employee"
             }
           }
         ],
@@ -50,7 +50,7 @@
           "200": {
             "description": "New employee is created",
             "schema": {
-              "$ref": "#/definitions/Employee"
+              "$ref": "#/definitions/employee"
             }
           }
         }
@@ -82,7 +82,7 @@
       ],
       "get": {
         "tags": [
-          "employees"
+          "Employee"
         ],
         "summary": "Get employee with given ID",
         "responses": {
@@ -97,7 +97,7 @@
       "delete": {
         "summary": "Delete employee with given ID",
         "tags": [
-          "employees"
+          "Employee"
         ],
         "responses": {
           "200": {
@@ -111,7 +111,7 @@
       "put": {
         "summary": "Update employee with give ID",
         "tags": [
-          "employees"
+          "Employee"
         ],
         "parameters": [
           {
@@ -132,13 +132,228 @@
           }
         }
       }
+    },
+    "/patients": {
+      "post": {
+        "tags": [
+          "Patient"
+        ],
+        "description": "Create new patient in system",
+        "parameters": [
+          {
+            "name": "patient",
+            "in": "body",
+            "description": "patient that we want to create",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New patient is created",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Patient"
+        ],
+        "summary": "Get all Patients in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/patients"
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patientId}": {
+      "parameters": [
+        {
+          "name": "patientId",
+          "in": "path",
+          "required": true,
+          "description": "ID of patient that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Patient"
+        ],
+        "summary": "Get patient with given ID",
+        "responses": {
+          "200": {
+            "description": "patient is found",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete patient with given ID",
+        "tags": [
+          "Patient"
+        ],
+        "responses": {
+          "200": {
+            "description": "patient is deleted",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update patient with give ID",
+        "tags": [
+          "Patient"
+        ],
+        "parameters": [
+          {
+            "name": "patient",
+            "in": "body",
+            "description": "patient with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "patient is updated",
+            "schema": {
+              "$ref": "#/definitions/patient"
+            }
+          }
+        }
+      }
+    },
+    "/meeting": {
+      "post": {
+        "tags": [
+          "Meeting"
+        ],
+        "description": "Create new meeting in system",
+        "parameters": [
+          {
+            "name": "meeting",
+            "in": "body",
+            "description": "meeting that we want to create",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New meeting is created",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Meeting"
+        ],
+        "summary": "Get all meeting in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/meetings"
+            }
+          }
+        }
+      }
+    },
+    "/meeting/{meetingId}": {
+      "parameters": [
+        {
+          "name": "meetingId",
+          "in": "path",
+          "required": true,
+          "description": "ID of meeting that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Meeting"
+        ],
+        "summary": "Get meeting with given ID",
+        "responses": {
+          "200": {
+            "description": "meeting is found",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete meeting with given ID",
+        "tags": [
+          "Meeting"
+        ],
+        "responses": {
+          "200": {
+            "description": "meeting is deleted",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update meeting with give ID",
+        "tags": [
+          "Meeting"
+        ],
+        "parameters": [
+          {
+            "name": "meeting",
+            "in": "body",
+            "description": "meeting with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "meeting is updated",
+            "schema": {
+              "$ref": "#/definitions/meeting"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
     "employee": {
       "required": [
         "email",
-        "_id"
+        "_id",
+        "lastname",
+        "firstname",
+        "password"
       ],
       "properties": {
         "_id": {
@@ -154,12 +369,198 @@
         },
         "firstName": {
           "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "employeeprefix": {
+          "type": "string"
+        },
+        "doctorprefix": {
+          "type": "string"
         }
       }
     },
     "employees": {
       "type": "array",
       "$ref": "#/definitions/employee"
+    },
+    "patient": {
+      "required": [
+        "firstname",
+        "lastname",
+        "address",
+        "prefix",
+        "dateofbirth",
+        "BSN",
+        "phonenumber",
+        "gender",
+        "patientnumber"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "dateofbirth": {
+          "type": "date"
+        },
+        "BSN": {
+          "type": "number"
+        },
+        "phonenumber": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "patientnumber": {
+          "type": "string"
+        },
+        "medicalrecord": {
+          "type": "medicalrecord",
+          "$ref": "#/definitions/medicalrecord"
+        }
+      }
+    },
+    "patients": {
+      "type": "array",
+      "$ref": "#/definitions/patient"
+    },
+    "meeting": {
+      "required": [
+        "subject",
+        "start",
+        "end",
+        "patient",
+        "employee"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "subject": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "start": {
+          "type": "date"
+        },
+        "end": {
+          "type": "date"
+        },
+        "patient": {
+          "type": "patient",
+          "$ref": "#/definitions/patient"
+        },
+        "employee": {
+          "type": "employee",
+          "$ref": "#/definitions/employee"
+        }
+      }
+    },
+    "meetings": {
+      "type": "array",
+      "$ref": "#/definitions/meeting"
+    },
+    "medicalrecord": {
+      "required": [
+        "patient"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "episodes": {
+          "type": "array",
+          "$ref": "#/definitions/episode"
+        },
+        "receipts": {
+          "type": "receipt",
+          "$ref": "#/definitions/receipt"
+        }
+      }
+    },
+    "medicalrecords": {
+      "type": "array",
+      "$ref": "#/definitions/medicalrecord"
+    },
+    "receipt": {
+      "required": [
+        "medicalrecord"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "medicalrecord": {
+          "type": "medicalrecord",
+          "$ref": "#/definitions/medicalrecord"
+        },
+        "preparation": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "dosage": {
+          "type": "string"
+        },
+        "publicationdate": {
+          "type": "date"
+        },
+        "daystotake": {
+          "type": "number"
+        }
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "$ref": "#/definitions/receipt"
+    },
+    "episode": {
+      "required": [
+        "employee"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "employee": {
+          "type": "employee",
+          "$ref": "#/definitions/employee"
+        },
+        "publicationdate": {
+          "type": "date"
+        },
+        "description": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "Boolean"
+        },
+        "ICPC": {
+          "type": "string"
+        },
+        "startdate": {
+          "type": "date"
+        }
+      }
+    },
+    "episodes": {
+      "type": "array",
+      "$ref": "#/definitions/episode"
     }
   }
 }
