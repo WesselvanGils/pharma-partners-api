@@ -8,7 +8,7 @@ const router = express.Router();
  router.post("/authentication/login", signin)
 
  // log an existing user in
- router.post("/authentication/validate", validateToken )
+ router.get("/authentication/validate", validateToken )
 
 router.get("/authentication/info", info );
 
