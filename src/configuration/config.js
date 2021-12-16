@@ -1,10 +1,11 @@
-const loglevel = process.env.LOGLEVEL || 'trace'
-
-logger: require('tracer').console({
-    format: ['{{timestamp}} [{{title}}] {{file}}:{{line}} : {{message}}'],
+const loglevel = process.env.LOGLEVEL || "trace";
+module.exports = {
+  logger: require("tracer").console({
+    format: ["{{timestamp}} [{{title}}] {{file}}:{{line}} : {{message}}"],
     preprocess: function (data) {
-      data.title = data.title.toUpperCase()
+      data.title = data.title.toUpperCase();
     },
-    dateformat: 'isoUtcDateTime',
-    level: loglevel
-  })
+    dateformat: "isoUtcDateTime",
+    level: loglevel,
+  }),
+};
