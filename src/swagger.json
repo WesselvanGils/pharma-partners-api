@@ -344,6 +344,642 @@
           }
         }
       }
+    },
+    "/medicalrecord": {
+      "post": {
+        "tags": [
+          "Medicalrecord"
+        ],
+        "description": "Create new medicalrecord in system",
+        "parameters": [
+          {
+            "name": "medicalrecord",
+            "in": "body",
+            "description": "medicalrecord that we want to create",
+            "schema": {
+              "$ref": "#/definitions/medicalrecord"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New medicalrecord is created",
+            "schema": {
+              "$ref": "#/definitions/medicalrecord"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Medicalrecord"
+        ],
+        "summary": "Get all medicalrecord in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/medicalrecords"
+            }
+          }
+        }
+      },
+      "/medicalrecord/{medicalrecordId}": {
+        "parameters": [
+          {
+            "name": "medicalrecordId",
+            "in": "path",
+            "required": true,
+            "description": "ID of medicalrecord that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Medicalrecord"
+          ],
+          "summary": "Get medicalrecord with given ID",
+          "responses": {
+            "200": {
+              "description": "medicalrecord is found",
+              "schema": {
+                "$ref": "#/definitions/medicalrecord"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete medicalrecord with given ID",
+          "tags": [
+            "Medicalrecord"
+          ],
+          "responses": {
+            "200": {
+              "description": "medicalrecord is deleted",
+              "schema": {
+                "$ref": "#/definitions/medicalrecord"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update medicalrecord with give ID",
+          "tags": [
+            "Medicalrecord"
+          ],
+          "parameters": [
+            {
+              "name": "medicalrecord",
+              "in": "body",
+              "description": "medicalrecord with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/medicalrecord"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "medicalrecord is updated",
+              "schema": {
+                "$ref": "#/definitions/medicalrecord"
+              }
+            }
+          }
+        }
+      },
+      "/episode": {
+        "post": {
+          "tags": [
+            "Episode"
+          ],
+          "description": "Create new episode in system",
+          "parameters": [
+            {
+              "name": "episode",
+              "in": "body",
+              "description": "episode that we want to create",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New episode is created",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Episode"
+          ],
+          "summary": "Get all episode in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/episodes"
+              }
+            }
+          }
+        }
+      },
+      "/episode/{episodeId}": {
+        "parameters": [
+          {
+            "name": "episodeId",
+            "in": "path",
+            "required": true,
+            "description": "ID of episode that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Episode"
+          ],
+          "summary": "Get episode with given ID",
+          "responses": {
+            "200": {
+              "description": "episode is found",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete episode with given ID",
+          "tags": [
+            "Episode"
+          ],
+          "responses": {
+            "200": {
+              "description": "episode is deleted",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update episode with give ID",
+          "tags": [
+            "Episode"
+          ],
+          "parameters": [
+            {
+              "name": "episode",
+              "in": "body",
+              "description": "episode with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "episode is updated",
+              "schema": {
+                "$ref": "#/definitions/episode"
+              }
+            }
+          }
+        }
+      },
+      "/journal": {
+        "post": {
+          "tags": [
+            "Journal"
+          ],
+          "description": "Create new journal in system",
+          "parameters": [
+            {
+              "name": "journal",
+              "in": "body",
+              "description": "journal that we want to create",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New journal is created",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Journal"
+          ],
+          "summary": "Get all journal in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/journals"
+              }
+            }
+          }
+        }
+      },
+      "/journal/{journalId}": {
+        "parameters": [
+          {
+            "name": "journalId",
+            "in": "path",
+            "required": true,
+            "description": "ID of journal that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Journal"
+          ],
+          "summary": "Get journal with given ID",
+          "responses": {
+            "200": {
+              "description": "journal is found",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete journal with given ID",
+          "tags": [
+            "Journal"
+          ],
+          "responses": {
+            "200": {
+              "description": "journal is deleted",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update journal with give ID",
+          "tags": [
+            "Journal"
+          ],
+          "parameters": [
+            {
+              "name": "journal",
+              "in": "body",
+              "description": "journal with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "journal is updated",
+              "schema": {
+                "$ref": "#/definitions/journal"
+              }
+            }
+          }
+        }
+      },
+      "/receipt": {
+        "post": {
+          "tags": [
+            "Receipt"
+          ],
+          "description": "Create new receipt in system",
+          "parameters": [
+            {
+              "name": "receipt",
+              "in": "body",
+              "description": "receipt that we want to create",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New receipt is created",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Receipt"
+          ],
+          "summary": "Get all receipt in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/receipts"
+              }
+            }
+          }
+        }
+      },
+      "/receipt/{receiptId}": {
+        "parameters": [
+          {
+            "name": "receiptId",
+            "in": "path",
+            "required": true,
+            "description": "ID of receipt that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Receipt"
+          ],
+          "summary": "Get receipt with given ID",
+          "responses": {
+            "200": {
+              "description": "receipt is found",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete receipt with given ID",
+          "tags": [
+            "Receipt"
+          ],
+          "responses": {
+            "200": {
+              "description": "receipt is deleted",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update receipt with give ID",
+          "tags": [
+            "Receipt"
+          ],
+          "parameters": [
+            {
+              "name": "receipt",
+              "in": "body",
+              "description": "receipt with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "receipt is updated",
+              "schema": {
+                "$ref": "#/definitions/receipt"
+              }
+            }
+          }
+        }
+      },
+      "/diagnostic": {
+        "post": {
+          "tags": [
+            "Diagnostic"
+          ],
+          "description": "Create new diagnostic in system",
+          "parameters": [
+            {
+              "name": "diagnostic",
+              "in": "body",
+              "description": "diagnostic that we want to create",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New diagnostic is created",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Diagnostic"
+          ],
+          "summary": "Get all diagnostic in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/diagnostics"
+              }
+            }
+          }
+        }
+      },
+      "/diagnostic/{diagnosticId}": {
+        "parameters": [
+          {
+            "name": "diagnosticId",
+            "in": "path",
+            "required": true,
+            "description": "ID of diagnostic that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Diagnostic"
+          ],
+          "summary": "Get diagnostic with given ID",
+          "responses": {
+            "200": {
+              "description": "diagnostic is found",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete diagnostic with given ID",
+          "tags": [
+            "Diagnostic"
+          ],
+          "responses": {
+            "200": {
+              "description": "diagnostic is deleted",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update diagnostic with give ID",
+          "tags": [
+            "Diagnostic"
+          ],
+          "parameters": [
+            {
+              "name": "diagnostic",
+              "in": "body",
+              "description": "diagnostic with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "diagnostic is updated",
+              "schema": {
+                "$ref": "#/definitions/diagnostic"
+              }
+            }
+          }
+        }
+      },
+      "/measurement": {
+        "post": {
+          "tags": [
+            "Measurement"
+          ],
+          "description": "Create new measurement in system",
+          "parameters": [
+            {
+              "name": "measurement",
+              "in": "body",
+              "description": "measurement that we want to create",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New measurement is created",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Measurement"
+          ],
+          "summary": "Get all measurement in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/measurements"
+              }
+            }
+          }
+        }
+      },
+      "/measurement/{measurementId}": {
+        "parameters": [
+          {
+            "name": "measurementId",
+            "in": "path",
+            "required": true,
+            "description": "ID of measurement that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Measurement"
+          ],
+          "summary": "Get measurement with given ID",
+          "responses": {
+            "200": {
+              "description": "measurement is found",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete measurement with given ID",
+          "tags": [
+            "Measurement"
+          ],
+          "responses": {
+            "200": {
+              "description": "measurement is deleted",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update measurement with give ID",
+          "tags": [
+            "Measurement"
+          ],
+          "parameters": [
+            {
+              "name": "measurement",
+              "in": "body",
+              "description": "measurement with new values of properties",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "measurement is updated",
+              "schema": {
+                "$ref": "#/definitions/measurement"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -487,8 +1123,12 @@
           "$ref": "#/definitions/episode"
         },
         "receipts": {
-          "type": "receipt",
+          "type": "array",
           "$ref": "#/definitions/receipt"
+        },
+        "diagnostics": {
+          "type": "array",
+          "$ref": "#/definitions/diagnostic"
         }
       }
     },
@@ -504,10 +1144,6 @@
         "_id": {
           "type": "string",
           "uniqueItems": true
-        },
-        "medicalrecord": {
-          "type": "medicalrecord",
-          "$ref": "#/definitions/medicalrecord"
         },
         "preparation": {
           "type": "string",
@@ -541,6 +1177,10 @@
           "type": "employee",
           "$ref": "#/definitions/employee"
         },
+        "journal": {
+          "type": "array",
+          "$ref": "#/definitions/journal"
+        },
         "publicationdate": {
           "type": "date"
         },
@@ -561,6 +1201,69 @@
     "episodes": {
       "type": "array",
       "$ref": "#/definitions/episode"
+    },
+    "journal": {
+      "required": [
+        "employee"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "employee": {
+          "type": "employee",
+          "$ref": "#/definitions/employee"
+        },
+        "SOEP": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "characteristics": {
+          "type": "string"
+        },
+        "ICPC": {
+          "type": "string"
+        },
+        "consult": {
+          "type": "string"
+        }
+      }
+    },
+    "journals": {
+      "type": "array",
+      "$ref": "#/definitions/journal"
+    },
+    "diagnostic": {
+      "required": [
+        "name",
+        "unit"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "$ref": "#/definitions/diagnostic"
+    },
+    "measurement": {
+      "date": {
+        "type": "date"
+      },
+      "valueNumber": {
+        "type": "double"
+      },
+      "unit": {
+        "type": "string"
+      }
     }
   }
 }
