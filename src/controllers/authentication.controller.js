@@ -103,7 +103,7 @@
  		// Strip the word 'Bearer ' from the headervalue
  		const token = authHeader.substring(7, authHeader.length);
 
- 		jwt.verify(token, jwtSecretKey, (err, payload) => {
+ 		jwt.verify(token, config.secret, (err, payload) => {
  			if (err) {
  				logger.warn("Not authorized");
  				res.status(401).json({
