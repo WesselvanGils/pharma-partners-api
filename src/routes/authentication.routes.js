@@ -8,7 +8,7 @@ router.post('/authentication/register', signup)
 router.post("/authentication/login", signin)
 
 // log an existing user in
-router.get("/authentication/validate", validateToken)
+router.get("/authentication/validate/:id", validateToken)
 
 router.get("/authentication/info", info);
 

@@ -101,40 +101,53 @@ exports.validateToken = (req, res, next) =>
 {
 	logger.info("validateToken called");
 	// logger.trace(req.headers)
-
-	const authHeader = req.headers.authorization;
-	if (!authHeader)
+	Employee.findById(req.params.id).exec((error, employee) =>
 	{
-		logger.warn("Authorization header missing!");
-		res.status(401).json({
-			error: "Authorization header missing!",
-
-		});
-	} else
-	{
-		// Strip the word 'Bearer ' from the headervalue
-		const token = authHeader.substring(7, authHeader.length);
-
-		jwt.verify(token, config.secret, (err, payload) =>
+		if (error)
 		{
-			if (err)
-			{
-				logger.warn("Not authorized");
-				res.status(401).json({
-					error: "Not authorized",
+			res.status(500).send({
+				message: error
+			});
+			return;
+		}
 
-				});
-			}
-			if (payload)
+		if (!employee)
+		{
+			return res.status(404).send({
+				message: "Employee Not found."
+			});
+		}
+
+		const authHeader = req.headers.authorization;
+		if (!authHeader)
+		{
+			logger.warn("Authorization header missing!");
+			res.status(401).json({
+				error: "Authorization header missing!",
+
+			})
+		} else
+		{
+			// Strip the word 'Bearer ' from the headervalue
+			const token = authHeader.substring(7, authHeader.length);
+
+			jwt.verify(token, config.secret, (err, payload) =>
 			{
-				logger.debug("token is valid", payload);
-				req.userId = payload.id;
-				res.status(202).json(
-					{
-						success: "Your token is valid"
-					}
-				);
-			}
-		});
-	};
+				if (err)
+				{
+					logger.warn("Not authorized");
+					res.status(401).json({
+						error: "Not authorized",
+
+					});
+				}
+				if (payload)
+				{
+					logger.debug("token is valid", payload);
+					req.userId = payload.id;
+					res.status(202).json(employee)
+				}
+			})
+		}
+	})
 }
