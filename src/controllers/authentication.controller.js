@@ -1,5 +1,6 @@
  const Employee = require("../models/employee.model")()
  const config = require("../configuration/authentication.config");
+ const logger = require("../configuration/config").logger;
 
  var jwt = require("jsonwebtoken");
  var bcrypt = require("bcryptjs");
@@ -94,7 +95,7 @@
 
  	const authHeader = req.headers.authorization;
  	if (!authHeader) {
- 		logger.warn("Authorization header missing!");
+ 		
  		res.status(401).json({
  			error: "Authorization header missing!",
  			
