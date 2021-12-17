@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const getModel = require('./model_cache')
 
 const ReceiptSchema = new Schema({
-    prepartion: {
+    preparation: {
         type: String,
         required: [true, 'A receipt needs to have a prepartion.'],
     },
