@@ -19,17 +19,17 @@ const MeetingSchema = new Schema(
 		title:
 		{
 			type: String,
-			required: [ true, "" ]
+			required: [ true, "A meeting needs to have a title." ]
 		},
 		start:
 		{
 			type: Date,
-			required: [ true, "" ]
+			required: [ true, "A meeting needs to have a start date." ]
 		},
 		end:
 		{
 			type: Date,
-			required: [ true, "" ]
+			required: [ true, "A meeting needs to have a start date." ]
 		}
 	}
 });
