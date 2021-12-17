@@ -65,7 +65,7 @@ exports.signin = (req, res) =>
 			if (!employee)
 			{
 				return res.status(404).send({
-					message: "Employee Not found."
+					message: "Deze medewerker is niet gevonden."
 				});
 			}
 
@@ -78,7 +78,7 @@ exports.signin = (req, res) =>
 			{
 				return res.status(401).send({
 					accessToken: null,
-					message: "Invalid Password!"
+					message: "Het gegeven wachtwoord is incorrect."
 				});
 			}
 

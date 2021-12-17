@@ -19,7 +19,7 @@ const ReceiptSchema = new Schema({
         type: Number,
         required: [true, 'A receipt needs to have a daysToTake.'],
     },
-    patient: {
+    medication: {
         type: Schema.Types.ObjectId,
         ref: "medications",
         autopopulate: true,
