@@ -16,7 +16,7 @@ const ReceiptSchema = new Schema({
         required: [true, 'A receipt needs to have a publicationDate.'],
     },
     daysToTake: {
-        type: Number,
+        type: String,
         required: [true, 'A receipt needs to have a daysToTake.'],
     },
     medication: {
@@ -28,6 +28,6 @@ const ReceiptSchema = new Schema({
 
 
 // mongoose plugin to always populate fields
-MeetingSchema.plugin(require("mongoose-autopopulate"));
+ReceiptSchema.plugin(require("mongoose-autopopulate"));
 
 module.exports = getModel('receipts', ReceiptSchema)
