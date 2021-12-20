@@ -5,11 +5,11 @@ const getModel = require('./model_cache')
 const DiagnosticSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'A medication needs to have a name.'],
+        required: [true, 'A diagnostic needs to have a name.'],
     },
     unit: {
         type: String,
-        required: [true, 'A medication needs to have a unit.'],  
+        required: [true, 'A diagnostic needs to have a unit.'],  
     },
     measurement: {
         type: Schema.Types.ObjectId,
