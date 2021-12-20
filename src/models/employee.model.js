@@ -5,13 +5,13 @@ const getModel = require('./model_cache')
 
 
 const EmployeeSchema = new Schema({
-    firstname: {
+    firstName: {
         type: String,
-        required: [true, 'A employee needs to have a firstname.'],
+        required: [true, 'A employee needs to have a firstName.'],
     },
-    lastname: {
+    lastName: {
         type: String,
-        required: [true, 'A employee needs to have a lastname.'],
+        required: [true, 'A employee needs to have a lastName.'],
     },
     password: {
         type: String,

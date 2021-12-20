@@ -987,8 +987,8 @@
           "required": [
               "email",
               "_id",
-              "lastname",
-              "firstname",
+              "lastName",
+              "firstName",
               "password"
           ],
           "properties": {
@@ -1023,8 +1023,8 @@
       },
       "patient": {
           "required": [
-              "firstname",
-              "lastname",
+              "firstName",
+              "lastName",
               "address",
               "prefix",
               "dateofbirth",
@@ -1038,10 +1038,10 @@
                   "type": "string",
                   "uniqueItems": true
               },
-              "firstname": {
+              "firstName": {
                   "type": "string"
               },
-              "lastname": {
+              "lastName": {
                   "type": "string"
               },
               "prefix": {

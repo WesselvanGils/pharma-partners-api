@@ -9,8 +9,8 @@ var bcrypt = require("bcryptjs");
 exports.signup = (req, res) =>
 {
 	const employee = new Employee({
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
 		email: req.body.email,
 		password: bcrypt.hashSync(req.body.password, 8),
 		employeePrefix: req.body.employeePrefix,
