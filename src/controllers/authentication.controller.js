@@ -3,6 +3,7 @@ const config = require("../configuration/authentication.config");
 const logger = require("../configuration/config").logger;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+var splunklogs = require("../splunk/splunkconfig")
 
 
 
@@ -39,6 +40,13 @@ exports.signup = (req, res) =>
 			email: employee.email,
 			token: token
 		});
+
+		var payload = {
+			email: employee.email
+		}
+		splunklogs.Logger.send(payload, function(err, resp, body) {
+			console.log("response from Splunk", body)
+		})
 	});
 };
 
