@@ -19,15 +19,15 @@ const PatientSchema = new Schema({
     },
     adress: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have an address.'],
     },
     prefix: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have a prefix.'],
     },
     patientNumber: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have a patient number.'],
     },
     gender: {
         type: String,
@@ -35,7 +35,7 @@ const PatientSchema = new Schema({
     },
     dateofbirth: {
         type: Date,
-        required: [true, 'A patient needs to have a gender.'],
+        required: [true, 'A patient needs to have a date of birth.'],
     },
     phonenumber: {
         type: String,
