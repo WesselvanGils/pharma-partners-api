@@ -22,20 +22,8 @@ const EmployeeSchema = new Schema({
         required: [true, 'A employee needs to have a email.'],
         unique: [true, 'A employee needs to have a unique email'],
        
-    },
-    employeePrefix: {
-        type: String,
-        required: [true, 'A employee needs to have a email.'],
-    },
-    doctorPrefix: {
-        type: String,
-        required: [true, 'A employee needs to have a email.'],
-    },
-    roles: {
-        type: String,
-        enum: ['Huisarts', 'HuisartsAssisentent', 'POH'],
-        required: [true, 'A employee needs to have a role.'],
     }
+  
 })
 
 
