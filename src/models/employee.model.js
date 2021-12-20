@@ -34,7 +34,7 @@ const EmployeeSchema = new Schema({
     roles: {
         type: String,
         enum: ['Huisarts', 'HuisartsAssisentent', 'POH'],
-        required: [true, 'A employee needs to have a role.'],
+        default: 'Huisarts',
     }
 })
 
