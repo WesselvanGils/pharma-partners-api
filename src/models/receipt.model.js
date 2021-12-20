@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const getModel = require('./model_cache')
 
 const ReceiptSchema = new Schema({
-    prepartion: {
+    preparation: {
         type: String,
         required: [true, 'A receipt needs to have a prepartion.'],
     },
@@ -16,10 +16,10 @@ const ReceiptSchema = new Schema({
         required: [true, 'A receipt needs to have a publicationDate.'],
     },
     daysToTake: {
-        type: Number,
+        type: String,
         required: [true, 'A receipt needs to have a daysToTake.'],
     },
-    patient: {
+    medication: {
         type: Schema.Types.ObjectId,
         ref: "medications",
         autopopulate: true,
@@ -28,6 +28,6 @@ const ReceiptSchema = new Schema({
 
 
 // mongoose plugin to always populate fields
-MeetingSchema.plugin(require("mongoose-autopopulate"));
+ReceiptSchema.plugin(require("mongoose-autopopulate"));
 
 module.exports = getModel('receipts', ReceiptSchema)
