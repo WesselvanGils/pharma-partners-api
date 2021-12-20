@@ -11,15 +11,16 @@ const DiagnosticSchema = new Schema({
         type: String,
         required: [true, 'A medication needs to have a unit.'],  
     },
-    measurement: {
+    measurement: [{
         type: Schema.Types.ObjectId,
         ref: "measurements",
         autopopulate: true,
-      },
+        default: []
+      }],
 })
 
 // mongoose plugin to always populate fields
-MeetingSchema.plugin(require("mongoose-autopopulate"));
+DiagnosticSchema.plugin(require("mongoose-autopopulate"));
 
 
 module.exports = getModel('diagnostics', DiagnosticSchema)
