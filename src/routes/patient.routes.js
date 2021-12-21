@@ -1,24 +1,22 @@
 const express = require("express");
 const router = express.Router();
-
 const crudController = require("../controllers/Crud");
 const Patient = require("../models/patient.model")();
-
 const patientCrudController = new crudController(Patient);
 
-// get all users
+// get all patients
 router.get("/patients", patientCrudController.getAll);
 
-// create user
+// create a patient
 router.post("/patients", patientCrudController.create);
 
-// get a user
+// get a patient
 router.get("/patients/:id", patientCrudController.getOne);
 
-// get a edit
+// update a patient
 router.put("/patients/:id", patientCrudController.update);
 
-// remove a user
+// remove a petient
 router.delete("/patients/:id", patientCrudController.delete);
 
 module.exports = router;

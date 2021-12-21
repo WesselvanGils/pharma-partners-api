@@ -6,13 +6,13 @@ const Prescription = require("../models/prescription.model")();
 
 const prescriptionCrudController = new crudController(Prescription);
 
-// get all users
+// get all prescriptions
 router.get("/prescriptions", prescriptionCrudController.getAll);
 
-// create user
+// create prescription
 router.post("/prescriptions", prescriptionCrudController.create);
 
-// remove a user
+// remove a prescription
 router.delete("/prescriptions/:id", prescriptionCrudController.delete);
 
 module.exports = router;
