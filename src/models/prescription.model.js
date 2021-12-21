@@ -30,4 +30,4 @@ const PrescriptionSchema = new Schema({
 // mongoose plugin to always populate fields
 PrescriptionSchema.plugin(require("mongoose-autopopulate"));
 
-module.exports = getModel('presciptions', PrescriptionSchema)
+module.exports = getModel('prescriptions', PrescriptionSchema)

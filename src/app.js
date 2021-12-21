@@ -50,6 +50,7 @@ app.use(helmet());
 // use morgan for logging
 app.use(morgan("dev"));
 
+var MedicalRecord = require("./models/medicalRecord.model")()
 
 const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
