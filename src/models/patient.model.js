@@ -45,7 +45,7 @@ const PatientSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "medicalrecords",
         autopopulate: true,
-      },
+    },
     doktor: {
         type: Schema.Types.ObjectId,
         ref: "employees",
