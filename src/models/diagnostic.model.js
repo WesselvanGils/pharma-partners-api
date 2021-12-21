@@ -1,26 +1,31 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-const getModel = require('./model_cache')
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const getModel = require("./model_cache");
 
 const DiagnosticSchema = new Schema({
-    name: {
-        type: String,
-        required: [true, 'A medication needs to have a name.'],
+  name: {
+    type: String,
+    required: [true, "A medication needs to have a name."],
+  },
+  unit: {
+    type: String,
+    required: [true, "A medication needs to have a unit."],
+  },
+  measurements: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "measurements",
+      autopopulate: true,
+      default: [],
     },
-    unit: {
-        type: String,
-        required: [true, 'A medication needs to have a unit.'],  
-    },
-    measurement: [{
-        type: Schema.Types.ObjectId,
-        ref: "measurements",
-        autopopulate: true,
-        default: []
-      }],
-})
+  ],
+  medicalRecord: {
+      type: Schema.Types.ObjectId,
+      ref:'medicalrecords'
+  },
+});
 
 // mongoose plugin to always populate fields
 DiagnosticSchema.plugin(require("mongoose-autopopulate"));
 
-
-module.exports = getModel('diagnostics', DiagnosticSchema)
+module.exports = getModel("diagnostics", DiagnosticSchema);

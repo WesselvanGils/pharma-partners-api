@@ -15,8 +15,12 @@ const MeasurementSchema = new Schema({
     date: {
         type: Date,
         required: [true, 'A medication needs to have a unit.'],  
-    }
-
+    },
+    diagnostic: {
+        type: Schema.Types.ObjectId,
+        ref: 'diagnostics'
+    },
+    
 })
 
 module.exports = getModel('measurements', MeasurementSchema)

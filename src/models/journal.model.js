@@ -27,6 +27,10 @@ const JournalSchema = new Schema({
     type: String,
     required: [true, "A journal needs to have a characteristics."],
   },
+  episode: {
+    type: Schema.Types.ObjectId,
+    ref: 'episodes'
+  }
 });
 
 // mongoose plugin to always populate fields
