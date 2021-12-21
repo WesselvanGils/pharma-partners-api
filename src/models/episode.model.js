@@ -24,22 +24,6 @@ const EpisodeSchema = new Schema({
     required: [true, "A episode needs to have a startDate."],
   },
 
-  description: {
-    type: String,
-    required: [true, "A episode needs to have a description."],
-  },
-  priority: {
-    type: Boolean,
-    required: [true, "A episode needs to have a priorty."],
-  },
-  ICPC: {
-    type: String,
-    required: [true, "A episode needs to have a ICPC."],
-  },
-  startDate: {
-    type: Date,
-    required: [true, "A episode needs to have a startDate."],
-  },
   journal: [
     {
       type: Schema.Types.ObjectId,
