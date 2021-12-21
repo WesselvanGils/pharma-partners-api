@@ -11,7 +11,7 @@ const EpisodeSchema = new Schema({
         type: String,
         required: [true, 'A episode needs to have a description.'],
     },
-    priorty: {
+    priority: {
         type: Boolean,
         required: [true, 'A episode needs to have a priorty.'],
     },
