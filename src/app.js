@@ -59,7 +59,7 @@ const diagnosticsRoutes = require("./routes/diagnostic.routes")
 const measurementsRoutes = require("./routes/measurement.routes")
 const prescriptionRoutes = require("./routes/prescription.routes")
 const episodeRoutes = require("./routes/episode.routes")
-const medicalRecordRoutes = require("./routes/medicalrecord.routes")
+const medicalRecordRoutes = require("./routes/medicalRecord.routes")
 
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
