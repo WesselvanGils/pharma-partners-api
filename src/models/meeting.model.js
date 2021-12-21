@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const getModel = require('./model_cache')
 const MeetingSchema = new Schema(
 {
+	description: {
+		type: String,
+		required: ['A meeting needs to have a description']
+	},
 	employee: {
 		type: Schema.Types.ObjectId,
 		ref: "employees",
