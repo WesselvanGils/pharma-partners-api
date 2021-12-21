@@ -16,7 +16,7 @@ const EpisodeSchema = new Schema({
         required: [true, 'A episode needs to have a priorty.'],
     },
     ICPC: {
-        type: Number,
+        type: String,
         required: [true, 'A episode needs to have a ICPC.'],
     },
     startDate: {
