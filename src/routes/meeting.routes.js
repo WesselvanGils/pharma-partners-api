@@ -7,7 +7,7 @@ const meetingCrudController = new crudController(Meeting);
 const meetingController = new MeetingController(Meeting);
 
 // get all meetings
-router.get("/meetings/:id", meetingController.getAll);
+router.get("/meetings/doctor/:id", meetingController.getAll);
 
 // create a meeting
 router.post("/meetings", meetingCrudController.create);
