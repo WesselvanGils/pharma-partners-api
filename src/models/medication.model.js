@@ -13,7 +13,4 @@ const MedicationSchema = new Schema({
     }
 })
 
-
-
-
 module.exports = getModel('medications', MedicationSchema)

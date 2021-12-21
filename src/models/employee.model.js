@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 const getModel = require('./model_cache')
 
-
 const EmployeeSchema = new Schema({
     firstName: {
         type: String,
@@ -20,16 +19,15 @@ const EmployeeSchema = new Schema({
     email: {
         type: String,
         required: [true, 'A employee needs to have a email.'],
-        unique: [true, 'A employee needs to have a unique email'],
-       
+        unique: [true, 'A employee needs to have a unique email'], 
     },
-    employeePrefix: {
+    employeeCode: {
         type: String,
-        required: [true, 'A employee needs to have a email.'],
+        required: [true, 'A employee needs to have a code.'],
     },
-    doctorPrefix: {
+    doctorCode: {
         type: String,
-        required: [true, 'A employee needs to have a email.'],
+        required: [true, 'A employee needs to have a doctorscode.'],
     },
     roles: {
         type: String,

@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 const getModel = require('./model_cache')
 const MedicalRecordSchema = new Schema({
- 
   receipts: {
     type: Schema.Types.ObjectId,
     ref: "receipts",
@@ -14,7 +13,7 @@ const MedicalRecordSchema = new Schema({
     ref: "episodes",
     autopopulate: true,
   },
-  Diagnostics: {
+  diagnostics: {
     type: Schema.Types.ObjectId,
     ref: "diagnostics",
     autopopulate: true,

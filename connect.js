@@ -1,8 +1,6 @@
 // avoid duplicate code for connecting to mongoose
 const mongoose = require('mongoose')
 
-
-
 // these options are to not let mongoose use deprecated features of the mongo driver
 const options = {
     useNewUrlParser: true,
@@ -18,9 +16,5 @@ async function mongo(dbName) {
         console.error(err)
     }
 }
-
-
-
-
 
 module.exports = {mongo}

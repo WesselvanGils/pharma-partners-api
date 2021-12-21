@@ -27,9 +27,8 @@ const EpisodeSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "journals",
         autopopulate: true,
-      },
+    },
 })
-
 
 // mongoose plugin to always populate fields
 EpisodeSchema.plugin(require("mongoose-autopopulate"));

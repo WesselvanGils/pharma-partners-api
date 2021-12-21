@@ -1,18 +1,16 @@
 const express = require("express");
 const router = express.Router();
-
 const crudController = require("../controllers/Crud");
 const Episode = require("../models/episode.model")();
-
 const episodeCrudController = new crudController(Episode);
 
-// get all users
+// get all episodes
 router.get("/episodes", episodeCrudController.getAll);
 
-// create user
+// create an episode
 router.post("/episodes", episodeCrudController.create);
 
-// remove a user
+// remove an episode
 router.delete("/episodes/:id", episodeCrudController.delete);
 
 module.exports = router;
