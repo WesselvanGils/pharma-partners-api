@@ -9,25 +9,25 @@ const PatientSchema = new Schema({
         type: String,
         required: [true, 'A patient needs to have a BSN.'],
     },
-    firstname: {
+    firstName: {
         type: String,
-        required: [true, 'A patient needs to have a firstname.'],
+        required: [true, 'A patient needs to have a firstName.'],
     },
-    lastname: {
+    lastName: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have a lastName.'],
     },
     adress: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have an address.'],
     },
     prefix: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have a prefix.'],
     },
     patientNumber: {
         type: String,
-        required: [true, 'A patient needs to have a lastname.'],
+        required: [true, 'A patient needs to have a patient number.'],
     },
     gender: {
         type: String,
@@ -35,7 +35,7 @@ const PatientSchema = new Schema({
     },
     dateofbirth: {
         type: Date,
-        required: [true, 'A patient needs to have a gender.'],
+        required: [true, 'A patient needs to have a date of birth.'],
     },
     phonenumber: {
         type: String,

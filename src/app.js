@@ -55,18 +55,20 @@ const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
 const meetingRoutes = require("./routes/meeting.routes")
 const medicationsRoutes = require("./routes/medication.routes")
-const receiptsRoutes = require("./routes/receipts.routes")
 const diagnosticsRoutes = require("./routes/diagnostic.routes")
 const measurementsRoutes = require("./routes/measurement.routes")
+const prescriptionRoutes = require("./routes/prescription.routes")
+const episodeRoutes = require("./routes/episode.routes")
 
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
 app.use("/api", meetingRoutes)
 app.use("/api", medicationsRoutes)
-app.use("/api", receiptsRoutes)
 app.use("/api", diagnosticsRoutes)
 app.use("/api", measurementsRoutes)
 
+app.use("/api", prescriptionRoutes)
+app.use("/api", episodeRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const errors = require('./errors')
