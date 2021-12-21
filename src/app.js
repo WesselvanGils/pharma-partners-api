@@ -48,7 +48,8 @@ app.use(helmet());
 // use morgan for logging
 app.use(morgan("dev"));
 
-var MedicalRecord = require("./models/medicalRecord.model")()
+
+var Journal = require("./models/journal.model")()
 
 const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
@@ -58,6 +59,7 @@ const diagnosticsRoutes = require("./routes/diagnostic.routes")
 const measurementsRoutes = require("./routes/measurement.routes")
 const prescriptionRoutes = require("./routes/prescription.routes")
 const episodeRoutes = require("./routes/episode.routes")
+const medicalRecordRoutes = require("./routes/medicalrecord.routes")
 
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
@@ -65,7 +67,7 @@ app.use("/api", meetingRoutes)
 app.use("/api", medicationsRoutes)
 app.use("/api", diagnosticsRoutes)
 app.use("/api", measurementsRoutes)
-
+app.use("/api", medicalRecordRoutes)
 app.use("/api", prescriptionRoutes)
 app.use("/api", episodeRoutes)
 
