@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const crudController = require("../controllers/Crud");
+const MeetingController = require("../controllers/meeting.controller");
 const Meeting = require("../models/meeting.model")();
 const meetingCrudController = new crudController(Meeting);
+const meetingController = new MeetingController(Meeting);
 
 // get all meetings
-router.get("/meetings", meetingCrudController.getAll);
+router.get("/meetings/:id", meetingController.getAll);
 
 // create a meeting
 router.post("/meetings", meetingCrudController.create);
