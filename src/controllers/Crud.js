@@ -11,9 +11,8 @@ class CrudController {
     create = async (req, res, next) => {
         const entity = new this.model(req.body)
         await entity.save()
-        res.status(201).json({
-            id: entity.id
-        })
+        console.log(entity)
+        res.status(201).json(entity)
     }
 
     getAll = async (req, res, next) => {
