@@ -7,7 +7,7 @@ const medicalRecord = require("../models/medicalRecord.model")();
 const medicalRecordCrudController = new crudController(medicalRecord);
 
 //Update medicalrecord
-router.get("/medicalrecords:id", medicalRecordCrudController.update);
+router.get("/medicalrecords/:id", medicalRecordCrudController.update);
 
 
 module.exports = router;
