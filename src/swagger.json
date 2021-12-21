@@ -1009,10 +1009,10 @@
               "password": {
                   "type": "string"
               },
-              "employeeprefix": {
+              "employeeCode": {
                   "type": "string"
               },
-              "doctorprefix": {
+              "doctorCode": {
                   "type": "string"
               }
           }
