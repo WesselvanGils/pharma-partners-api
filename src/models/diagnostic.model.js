@@ -16,7 +16,6 @@ const DiagnosticSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "measurements",
       autopopulate: true,
-      default: [],
     },
   ],
   medicalRecord: {

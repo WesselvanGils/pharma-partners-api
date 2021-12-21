@@ -14,7 +14,7 @@ const MeasurementSchema = new Schema({
     },
     date: {
         type: Date,
-        required: [true, 'A medication needs to have a unit.'],  
+        required: [true, 'A measurement needs to have a date.'],  
     },
     diagnostic: {
         type: Schema.Types.ObjectId,

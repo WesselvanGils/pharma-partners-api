@@ -15,4 +15,7 @@ router.post("/diagnostics", diagnosticCrudController.create);
 // remove a user
 router.delete("/diagnostics/:id", diagnosticCrudController.delete);
 
+//Update diagnostic
+router.put("/diagnostics/:id", diagnosticCrudController.update);
+
 module.exports = router;
