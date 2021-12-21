@@ -23,29 +23,31 @@ const EpisodeSchema = new Schema({
     type: Date,
     required: [true, "A episode needs to have a startDate."],
   },
-  
-    description: {
-        type: String,
-        required: [true, 'A episode needs to have a description.'],
+
+  description: {
+    type: String,
+    required: [true, "A episode needs to have a description."],
+  },
+  priority: {
+    type: Boolean,
+    required: [true, "A episode needs to have a priorty."],
+  },
+  ICPC: {
+    type: String,
+    required: [true, "A episode needs to have a ICPC."],
+  },
+  startDate: {
+    type: Date,
+    required: [true, "A episode needs to have a startDate."],
+  },
+  journal: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "journals",
+      autopopulate: true,
     },
-    priority: {
-        type: Boolean,
-        required: [true, 'A episode needs to have a priorty.'],
-    },
-    ICPC: {
-        type: String,
-        required: [true, 'A episode needs to have a ICPC.'],
-    },
-    startDate: {
-        type: Date,
-        required: [true, 'A episode needs to have a startDate.']
-    },
-    journal: [{
-        type: Schema.Types.ObjectId,
-        ref: "journals",
-        autopopulate: true,
-    }],
-})
+  ],
+});
 
 // mongoose plugin to always populate fields
 EpisodeSchema.plugin(require("mongoose-autopopulate"));
