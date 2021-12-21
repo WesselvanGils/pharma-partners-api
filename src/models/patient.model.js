@@ -46,14 +46,11 @@ const PatientSchema = new Schema({
         ref: "medicalrecords",
         autopopulate: true,
       },
-
     doktor: {
         type: Schema.Types.ObjectId,
         ref: "employees",
         autopopulate: true,
     }
-
-
 })
 
 PatientSchema.plugin(mongooseFieldEncryption, { fields: ["BSN", "phonenumber", "adress"], secret: process.env.SERVER_SECRET_MONGOOSE  });

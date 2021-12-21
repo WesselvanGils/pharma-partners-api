@@ -9,7 +9,4 @@ const LogSchema = new Schema({
     },
 })
 
-
-
-
 module.exports = getModel('logs', LogSchema)

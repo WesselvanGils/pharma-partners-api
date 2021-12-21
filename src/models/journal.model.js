@@ -17,7 +17,7 @@ const JournalSchema = new Schema({
   },
   ICPC: {
     type: Number,
-    required: [true, "A jounral needs to have a ICPC."],
+    required: [true, "A journal needs to have a ICPC."],
   },
   consult: {
     type: String,
