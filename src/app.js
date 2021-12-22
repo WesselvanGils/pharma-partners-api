@@ -48,9 +48,6 @@ app.use(helmet());
 // use morgan for logging
 app.use(morgan("dev"));
 
-
-var Journal = require("./models/journal.model")()
-
 const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
 const meetingRoutes = require("./routes/meeting.routes")
@@ -60,6 +57,7 @@ const measurementsRoutes = require("./routes/measurement.routes")
 const prescriptionRoutes = require("./routes/prescription.routes")
 const episodeRoutes = require("./routes/episode.routes")
 const medicalRecordRoutes = require("./routes/medicalRecord.routes")
+const journalRoutes = require("./routes/journal.routes")
 
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
@@ -70,6 +68,7 @@ app.use("/api", measurementsRoutes)
 app.use("/api", medicalRecordRoutes)
 app.use("/api", prescriptionRoutes)
 app.use("/api", episodeRoutes)
+app.use("/api", journalRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const errors = require('./errors')

@@ -24,7 +24,7 @@ const EpisodeSchema = new Schema({
     required: [true, "A episode needs to have a startDate."],
   },
 
-  journal: [
+  journals: [
     {
       type: Schema.Types.ObjectId,
       ref: "journals",
