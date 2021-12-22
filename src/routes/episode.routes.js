@@ -10,6 +10,9 @@ router.get("/episodes", episodeCrudController.getAll);
 // create an episode
 router.post("/episodes", episodeCrudController.create);
 
+// update an episode
+router.put("/episodes/:id", episodeCrudController.update)
+
 // remove an episode
 router.delete("/episodes/:id", episodeCrudController.delete);
 
