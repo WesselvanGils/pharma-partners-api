@@ -8,10 +8,6 @@ const MeasurementSchema = new Schema({
         type: Number,
         required: [true, 'A measurement needs to have a value.'],
     },
-    unit: {
-        type: String,
-        required: [true, 'A measurement needs to have a unit.'],  
-    },
     date: {
         type: Date,
         required: [true, 'A measurement needs to have a date.'],  
