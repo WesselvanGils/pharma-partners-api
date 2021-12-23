@@ -1,24 +1,24 @@
 const express = require("express");
 const router = express.Router();
-
 const crudController = require("../controllers/Crud");
+const MeetingController = require("../controllers/meeting.controller");
 const Meeting = require("../models/meeting.model")();
-
 const meetingCrudController = new crudController(Meeting);
+const meetingController = new MeetingController(Meeting);
 
-// get all users
-router.get("/meetings", meetingCrudController.getAll);
+// get all meetings
+router.get("/meetings/doctor/:id", meetingController.getAll);
 
-// create user
+// create a meeting
 router.post("/meetings", meetingCrudController.create);
 
-// get a user
+// get a meeting
 router.get("/meetings/:id", meetingCrudController.getOne);
 
-// get a edit
+// update a meeting
 router.put("/meetings/:id", meetingCrudController.update);
 
-// remove a user
+// remove a meeting
 router.delete("/meetings/:id", meetingCrudController.delete);
 
 module.exports = router;

@@ -5,16 +5,15 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 
-
 exports.signup = (req, res) =>
 {
 	const employee = new Employee({
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
 		email: req.body.email,
 		password: bcrypt.hashSync(req.body.password, 8),
-		employeePrefix: req.body.employeePrefix,
-		doctorPrefix: req.body.doctorPrefix,
+		employeeCode: req.body.employeeCode,
+		doctorCode: req.body.doctorCode,
 	});
 
 	employee.save((err, user) =>
@@ -34,17 +33,18 @@ exports.signup = (req, res) =>
 		});
 
 		res.status(200).send({
-			message: "employee was registered successfully!",
+			message: "Employee was registered successfully!",
 			_id: employee._id,
 			email: employee.email,
 			token: token
 		});
+
 	});
 };
 
 exports.info = (req, res) =>
 {
-	res.status(200).json('Welkom op de API voor de F1 avans. /api/users /api/grandprixs  /api/drivers  /api/racewins  /api/constructors').end();
+	res.status(200).json('Welkom op de API voor PharmaPartners.').end();
 }
 
 exports.signin = (req, res) =>
@@ -94,6 +94,33 @@ exports.signin = (req, res) =>
 			});
 		});
 };
+
+exports.getEmployeeFromToken = (req, res, next, callback) => {
+
+	const authHeader = req.headers.authorization;
+    const token = authHeader.substring(7, authHeader.length);
+    jwt.verify(token, config.secret, (err, decoded) => { if (decoded) {
+		let userId = decoded.id 
+		Employee.findById(userId).exec((error, employee) => {
+			if (error)
+			{
+				console.log(error.message)
+				callback(error.message)
+			}
+	
+			if (!employee)
+			{
+				console.log("no employee boss")
+
+				callback("no employee", undefined)
+
+			} else {
+				callback(undefined, employee)
+			}
+		})
+
+	} } );	
+}
 
 
 exports.validateToken = (req, res, next) =>
