@@ -19,17 +19,15 @@ var configo = {
 var Logger = new SplunkLogger(configo)
 Logger.requestOptions.strictSSL = true;
 
-
-
 exports.signup = (req, res) =>
 {
 	const employee = new Employee({
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
 		email: req.body.email,
 		password: bcrypt.hashSync(req.body.password, 8),
-		employeePrefix: req.body.employeePrefix,
-		doctorPrefix: req.body.doctorPrefix,
+		employeeCode: req.body.employeeCode,
+		doctorCode: req.body.doctorCode,
 	});
 
 	employee.save((err, user) =>
@@ -49,7 +47,7 @@ exports.signup = (req, res) =>
 		});
 
 		res.status(200).send({
-			message: "employee was registered successfully!",
+			message: "Employee was registered successfully!",
 			_id: employee._id,
 			email: employee.email,
 			token: token
@@ -69,7 +67,7 @@ exports.signup = (req, res) =>
 
 exports.info = (req, res) =>
 {
-	res.status(200).json('Welkom op de API voor de F1 avans. /api/users /api/grandprixs  /api/drivers  /api/racewins  /api/constructors').end();
+	res.status(200).json('Welkom op de API voor PharmaPartners.').end();
 }
 
 exports.signin = (req, res) =>

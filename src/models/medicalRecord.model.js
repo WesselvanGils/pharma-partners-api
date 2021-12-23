@@ -4,21 +4,21 @@ const Schema = mongoose.Schema;
 const getModel = require('./model_cache')
 const MedicalRecordSchema = new Schema({
  
-  receipts: {
+  prescriptions: [{
     type: Schema.Types.ObjectId,
-    ref: "receipts",
+    ref: "prescriptions",
     autopopulate: true,
-  },
-  episodes: {
+  }],
+  episodes: [{
     type: Schema.Types.ObjectId,
     ref: "episodes",
     autopopulate: true,
-  },
-  Diagnostics: {
+  }],
+  diagnostics: [{
     type: Schema.Types.ObjectId,
     ref: "diagnostics",
     autopopulate: true,
-  },
+  }],
 
 });
 

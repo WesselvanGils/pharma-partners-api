@@ -4,7 +4,6 @@ var swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('./swagger.json');
 
 
-
 // this catches an exception in a route handler and calls next with it,
 // so express' error middleware can deal with it
 // saves us a try catch in each route handler
@@ -20,7 +19,6 @@ const morgan = require("morgan");
 // parse json body of incoming request
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.json());
 
 // enable CORS (cross origin resourse sharing)
@@ -50,18 +48,27 @@ app.use(helmet());
 // use morgan for logging
 app.use(morgan("dev"));
 
-
 const authRoutes = require("./routes/authentication.routes");
 const patientsRoutes = require("./routes/patient.routes");
 const meetingRoutes = require("./routes/meeting.routes")
 const medicationsRoutes = require("./routes/medication.routes")
-const receiptsRoutes = require("./routes/receipts.routes")
+const diagnosticsRoutes = require("./routes/diagnostic.routes")
+const measurementsRoutes = require("./routes/measurement.routes")
+const prescriptionRoutes = require("./routes/prescription.routes")
+const episodeRoutes = require("./routes/episode.routes")
+const medicalRecordRoutes = require("./routes/medicalRecord.routes")
+const journalRoutes = require("./routes/journal.routes")
 
 app.use('/api', authRoutes)
 app.use('/api', patientsRoutes)
 app.use("/api", meetingRoutes)
 app.use("/api", medicationsRoutes)
-app.use("/api", receiptsRoutes)
+app.use("/api", diagnosticsRoutes)
+app.use("/api", measurementsRoutes)
+app.use("/api", medicalRecordRoutes)
+app.use("/api", prescriptionRoutes)
+app.use("/api", episodeRoutes)
+app.use("/api", journalRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 const errors = require('./errors')
@@ -87,8 +94,6 @@ app.use("*", function (err, req, res, next) {
     message: "something really unexpected happened",
   });
 });
-
-
 
 // export the app object for use elsewhere
 module.exports = app;
