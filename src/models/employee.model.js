@@ -3,15 +3,14 @@ const Schema = mongoose.Schema
 
 const getModel = require('./model_cache')
 
-
 const EmployeeSchema = new Schema({
-    firstname: {
+    firstName: {
         type: String,
-        required: [true, 'A employee needs to have a firstname.'],
+        required: [true, 'A employee needs to have a firstName.'],
     },
-    lastname: {
+    lastName: {
         type: String,
-        required: [true, 'A employee needs to have a lastname.'],
+        required: [true, 'A employee needs to have a lastName.'],
     },
     password: {
         type: String,
@@ -20,10 +19,21 @@ const EmployeeSchema = new Schema({
     email: {
         type: String,
         required: [true, 'A employee needs to have a email.'],
-        unique: [true, 'A employee needs to have a unique email'],
-       
+        unique: [true, 'A employee needs to have a unique email'], 
+    },
+    employeeCode: {
+        type: String,
+        required: [true, 'A employee needs to have a code.'],
+    },
+    doctorCode: {
+        type: String,
+        required: [true, 'A employee needs to have a doctorscode.'],
+    },
+    roles: {
+        type: String,
+        enum: ['Huisarts', 'HuisartsAssisentent', 'POH'],
+        default: 'Huisarts',
     }
-  
 })
 
 

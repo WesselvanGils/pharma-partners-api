@@ -120,6 +120,33 @@ exports.signin = (req, res) =>
 		});
 };
 
+exports.getEmployeeFromToken = (req, res, next, callback) => {
+
+	const authHeader = req.headers.authorization;
+    const token = authHeader.substring(7, authHeader.length);
+    jwt.verify(token, config.secret, (err, decoded) => { if (decoded) {
+		let userId = decoded.id 
+		Employee.findById(userId).exec((error, employee) => {
+			if (error)
+			{
+				console.log(error.message)
+				callback(error.message)
+			}
+	
+			if (!employee)
+			{
+				console.log("no employee boss")
+
+				callback("no employee", undefined)
+
+			} else {
+				callback(undefined, employee)
+			}
+		})
+
+	} } );	
+}
+
 
 exports.validateToken = (req, res, next) =>
 {
