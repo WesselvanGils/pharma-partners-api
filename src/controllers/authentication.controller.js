@@ -3,21 +3,7 @@ const config = require("../configuration/authentication.config");
 const logger = require("../configuration/config").logger;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
-const SplunkLogger = require("splunk-logging/splunklogger");
 
-var configo = {
-    token: "043da257-dca8-4acb-943e-57d5ea0bf6fe",
-    url: "http://localhost:8088",
-    batchInterval: 1000,
-    maxBatchCount: 10,
-    maxBatchSize: 1024 // 1kb
-	// Enable SSL certificate validationLogger.requestOptions.strictSSL = true;
-};
-// Enable SSL certificate 
-
-
-var Logger = new SplunkLogger(configo)
-Logger.requestOptions.strictSSL = true;
 
 exports.signup = (req, res) =>
 {
@@ -53,15 +39,6 @@ exports.signup = (req, res) =>
 			token: token
 		});
 
-		var payload = {
-			message : {
-				email: employee.email
-			}
-		
-		}
-		Logger.send(payload, function(err, resp, body) {
-			console.log("response from Splunk", body)
-		})
 	});
 };
 
