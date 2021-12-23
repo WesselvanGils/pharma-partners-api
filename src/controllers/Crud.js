@@ -1,10 +1,11 @@
 // this contains all basic CRUD endpoints on a schema
 const SplunkLogger = require("splunk-logging/splunklogger");
 const authcontroller = require("../controllers/authentication.controller")
+const splunkconfig = require("../configuration/splunk.config")
 
 var configo = {
-    token: "043da257-dca8-4acb-943e-57d5ea0bf6fe",
-    url: "http://localhost:8088",
+    token: splunkconfig.key,
+    url: splunkconfig.url,
     batchInterval: 1000,
     maxBatchCount: 10,
     maxBatchSize: 1024 // 1kb
