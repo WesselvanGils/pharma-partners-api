@@ -9,7 +9,7 @@ const medicationCrudController = new crudController(Medication);
 // get all users
 router.get("/medications", medicationCrudController.getAll);
 
-// create user
+// create medication
 router.post("/medications", medicationCrudController.create);
 
 // remove a user
