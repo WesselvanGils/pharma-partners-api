@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/TheElementalDragon/pharma-partners-api#readme",
   "dependencies": {
+    "authy": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "chai-as-promised": "^7.1.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

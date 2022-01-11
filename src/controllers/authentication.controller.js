@@ -3,7 +3,26 @@ const config = require("../configuration/authentication.config");
 const logger = require("../configuration/config").logger;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const API_KEY = 'ClHjxmnmS7RLM3Z94JodxkaTVEBdhIOA';
+const authy = require('authy')(API_KEY);
+const cookies = require('cookie-parser');
 
+
+exports.auth = (req, res) => {
+	if (req.body.login === 'testy@test.nl' && req.body.password === 'password') {
+	  authy.send_approval_request('Authy ID', {
+		  message: 'Request to login to Angular two factor authentication with Twilio'
+		}, null, null,  function(err, authResponse) {
+		  if (err) {
+			res.status(400).send('Bad Request');
+		  } else {
+			res.status(200).send({token: authResponse.approval_request.uuid});
+		  }
+	  });
+	} else {
+	  res.status(401).send('Bad credentials');
+	}
+   }
 
 exports.signup = (req, res) =>
 {
@@ -88,12 +107,45 @@ exports.signin = (req, res) =>
 				expiresIn: 86400 // 24 hours
 			});
 
-			res.status(200).send({
-				employee: employee,
-				token: token
+			authy.send_approval_request('517898802', { //Account ID
+				message: 'Request to login to PharmaPartners two factor authentication with Twilio'
+			}, null, null, function(err, authResponse){
+				if(err){
+					console.log('Approval Twilio: bad request')
+					res.status(400).send('Bad Request');
+				} else{
+					console.log('Request approved')
+					res.status(200).send({
+						employee: employee,
+						token: token,
+						authToken: authResponse.approval_request.uuid,
+					});
+				}
 			});
+			
 		});
 };
+
+exports.getStatus = (req, res) => {
+	authy.check_approval_status(req.headers.authToken, (err, authResponse) => {
+		if(err){
+			res.status(400).send('Bad Request');
+		} else{
+			if(authResponse.approval_request.status === 'approved'){
+				console.log('Twilio request was approved!')
+				res.cookie('authentication', 'super-encrypted-value-indicating-that-user-is-authenticated!', {
+					maxAge: 5 * 60 * 60 * 60,
+					httpOnly: true
+				});
+			}
+			res.status(200).send({status: authResponse.approval_request.status});
+		}
+	})
+}
+
+exports.isLogged = (req, res) => {
+	res.status(200).send({authenticated: req.cookies.authentication === 'super-encrypted-value-indicating-that-user-is-authenticated!'})
+}
 
 exports.getEmployeeFromToken = (req, res, next, callback) => {
 

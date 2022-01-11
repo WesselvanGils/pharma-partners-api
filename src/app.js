@@ -3,6 +3,10 @@ const bodyParser = require("body-parser");
 var swaggerUi = require('swagger-ui-express'),
     swaggerDocument = require('./swagger.json');
 
+const API_KEY = 'ClHjxmnmS7RLM3Z94JodxkaTVEBdhIOA';
+const authy = require('authy')(API_KEY);
+
+
 
 // this catches an exception in a route handler and calls next with it,
 // so express' error middleware can deal with it

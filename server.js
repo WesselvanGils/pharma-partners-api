@@ -1,10 +1,14 @@
 // reads the .env file and stores it as environment variables, use for config
 require('dotenv').config()
 
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const connect = require('./connect')
 
 const app = require('./src/app')
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 // the order of starting the app and connecting to the database does not matter
 // since mongoose buffers queries till there is a connection
 
