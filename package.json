@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "test:prod": "echo \" Testing has yet to be inplemented\" && exit 1",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --watch \"./**/*spec.js\" --reporter min"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "neo4j-driver": "^4.4.1",
     "nodemon": "^1.18.5",
     "splunk-logging": "^0.11.1",
-    "swagger-ui-express": "^4.2.0",
+    "swagger-ui-express": "^4.3.0",
     "tracer": "^1.1.4"
   },
   "devDependencies": {
