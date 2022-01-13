@@ -15,9 +15,13 @@ const PrescriptionSchema = new Schema({
         type: Date,
         required: [ true, 'A prescription needs to have a publicationDate.' ],
     },
-    period: {
-        type: String,
-        required: [ true, 'A prescription needs to have a time period.' ],
+    periodStart: {
+        type: Date,
+        required: [ true, 'A prescription needs to have a starting time.' ],
+    },
+    periodEnd: {
+        type: Date,
+        required: [ true, 'A prescription needs to have an ending time.' ],
     },
     medication: {
         type: Schema.Types.ObjectId,

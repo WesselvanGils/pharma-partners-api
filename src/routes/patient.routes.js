@@ -7,6 +7,9 @@ const patientCrudController = new crudController(Patient);
 // get all patients
 router.get("/patients", patientCrudController.getAll);
 
+// get a batch of patients
+router.get("/patients/:amount/:batch", patientCrudController.getBatch)
+
 // create a patient
 router.post("/patients", patientCrudController.create);
 

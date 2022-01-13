@@ -69,6 +69,20 @@ class CrudController {
         // })
     }
 
+    getBatch = async (req, res) =>
+    {
+        const startIndex = req.params.batch * req.params.amount
+        let entities = await this.model.find()
+        let response = []
+
+        await entities.sort((a, b) => {return a.patientNumber - b.patientNumber})
+        await entities.slice(startIndex, startIndex + req.params.amount).map(item =>
+        {
+            response.push(item)
+        })
+        res.status(200).send(response)
+    }
+
     getOne = async (req, res, next) => {
         const entity = await this.model.findById(req.params.id)
         res.status(200).send(entity)
