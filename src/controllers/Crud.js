@@ -33,64 +33,64 @@ class CrudController {
             id: entity.id
         })
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entity: entity,
-                        employee: result,
-                        method: "create",
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entity: entity,
+        //                 employee: result,
+        //                 method: "create",
+        //             }
                 
-                }
-                console.log(payload)
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         console.log(payload)
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
     getAll = async (req, res, next) => {
         const entities = await this.model.find()
         res.status(200).send(entities)
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entities: entities,
-                        employee: result,
-                        method: "getAll"
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entities: entities,
+        //                 employee: result,
+        //                 method: "getAll"
+        //             }
                 
-                }
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
     getOne = async (req, res, next) => {
         const entity = await this.model.findById(req.params.id)
         res.status(200).send(entity)
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entity: entity,
-                        employee: result,
-                        method: "getOne"
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entity: entity,
+        //                 employee: result,
+        //                 method: "getOne"
+        //             }
                 
-                }
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
 
@@ -98,21 +98,21 @@ class CrudController {
         await this.model.findByIdAndUpdate(req.params.id, req.body) 
         res.status(200).json({id: req.body._id}).end()
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entity: req.body,
-                        employee: result,
-                        method: "update"
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entity: req.body,
+        //                 employee: result,
+        //                 method: "update"
+        //             }
                 
-                }
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
 
@@ -123,21 +123,21 @@ class CrudController {
         await entity.delete()
         res.status(204).end()
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entity: entity,
-                        employee: result,
-                        method: "delete"
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entity: entity,
+        //                 employee: result,
+        //                 method: "delete"
+        //             }
                 
-                }
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
     
