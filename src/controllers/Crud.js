@@ -55,21 +55,35 @@ class CrudController {
         const entities = await this.model.find()
         res.status(200).send(entities)
 
-        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-        //     if (error) {
-        //         console.log(error)
-        //     } else {
-        //         var payload = {
-        //             message : {
-        //                 entities: entities,
-        //                 employee: result,
-        //                 method: "getAll"
-        //             }
+        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+            if (error) {
+                console.log(error)
+            } else {
+                var payload = {
+                    message : {
+                        entities: entities,
+                        employee: result,
+                        method: "getAll"
+                    }
                 
-        //         }
-        //         Logger.send(payload)
-        //     }
-        // })
+                }
+                Logger.send(payload)
+            }
+        })
+    }
+
+    getBatch = async (req, res) =>
+    {
+        const startIndex = req.params.batch * req.params.amount
+        let entities = await this.model.find()
+        let response = []
+
+        await entities.sort((a, b) => {return a.patientNumber - b.patientNumber})
+        await entities.slice(startIndex, startIndex + req.params.amount).map(item =>
+        {
+            response.push(item)
+        })
+        res.status(200).send(response)
     }
 
     getOne = async (req, res, next) => {
