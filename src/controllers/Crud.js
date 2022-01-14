@@ -7,7 +7,7 @@ var configo = {
     token: splunkconfig.key,
     url: splunkconfig.url,
     batchInterval: 1000,
-    maxBatchCount: 10,
+    maxBatchCount: 1,
     maxBatchSize: 1024 // 1kb
 	// Enable SSL certificate validationLogger.requestOptions.strictSSL = true;
 };
@@ -41,10 +41,15 @@ class CrudController {
                     message : {
                         entity: entity,
                         employee: result,
-                        method: "create"
+                        method: "create",
+                        event: "Sourcetype test please",
+                        sourcetype: "testsystem",
+                        host: "some-host-123",
+                        fields: {"tracking_id": 1234}
                     }
                 
                 }
+                console.log(payload)
                 Logger.send(payload)
             }
         })
