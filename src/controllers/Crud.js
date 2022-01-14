@@ -84,6 +84,22 @@ class CrudController {
             response.push(item)
         })
         res.status(200).send(response)
+
+        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+            if (error) {
+                console.log(error)
+            } else {
+                var payload = {
+                    message : {
+                        entities: entities,
+                        employee: result,
+                        method: "getBatch"
+                    }
+                
+                }
+                Logger.send(payload)
+            }
+        })
     }
 
     getOne = async (req, res, next) => {
