@@ -17,6 +17,8 @@ var configo = {
 var Logger = new SplunkLogger(configo)
 Logger.requestOptions.strictSSL = true;
 
+// ik wil een commit maken
+
 // the schema is supplied by injection
 class CrudController {
     constructor(model) {
