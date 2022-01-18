@@ -38,6 +38,12 @@ const JournalSchema = new Schema({
 		type: String,
 		required: [ true, "A journal needs to have a characteristics." ]
 	},
+	author:
+	{
+		type: Schema.Types.ObjectId,
+        ref: "employees",
+        autopopulate: true,
+	}
 });
 
 // mongoose plugin to always populate fields
