@@ -102,6 +102,17 @@ class CrudController {
         // })
     }
 
+    archiveJournals = async (req, res, next) => {
+        await this.model.updateMany({episode: req.params.id}, {isArchived: true, patient: req.params.patient, episode: null}, (err, docs) => {
+            if (err){
+                console.log('error', err)
+            } else {
+                console.log('docs', docs)
+            }
+        })
+        res.status(200).json({message: 'Succesfully archived journals.'}).end()
+    }
+
     getOne = async (req, res, next) => {
         const entity = await this.model.findById(req.params.id)
         res.status(200).send(entity)
