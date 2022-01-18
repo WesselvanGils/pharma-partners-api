@@ -10,6 +10,16 @@ const MedicationSchema = new Schema({
     unit: {
         type: String,
         required: [true, 'A medication needs to have a unit.'],  
+    },
+    amount:
+    {
+        type: Number,
+        required: [true, "A medication must have an amount"]
+    },
+    index: 
+    {
+        type: Number,
+        required: [true, "A medication needs an index"]
     }
 })
 
