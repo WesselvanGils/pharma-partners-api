@@ -43,7 +43,20 @@ const JournalSchema = new Schema({
 		type: Schema.Types.ObjectId,
         ref: "employees",
         autopopulate: true,
-	}
+	},
+	isArchived:{
+		type:Boolean, 
+		required: [true, "A journal needs to have an isArchived."]
+	}, 
+	patient: {
+        type: Schema.Types.ObjectId,
+        ref: "patients",
+        autopopulate: true,
+    },
+	episode: {
+        type: Schema.Types.ObjectId,
+        ref: "episodes",
+    }
 });
 
 // mongoose plugin to always populate fields
