@@ -53,7 +53,7 @@ const PatientSchema = new Schema({
     }
 })
 
-PatientSchema.plugin(mongooseFieldEncryption, { fields: ["BSN", "phonenumber", "adress"], secret: process.env.SERVER_SECRET_MONGOOSE  });
+PatientSchema.plugin(mongooseFieldEncryption, { fields: ["BSN", "phonenumber", "adress", "lastname"], secret: process.env.SERVER_SECRET_MONGOOSE  });
 
 PatientSchema.plugin(require("mongoose-autopopulate"));
 

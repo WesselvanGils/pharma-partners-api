@@ -27,11 +27,11 @@ class CrudController {
     // lexical scope for 'this'
     create = async (req, res, next) => {
 
+        console.log(req.body)
+
         const entity = new this.model(req.body)
         await entity.save()
-        res.status(201).json({
-            id: entity.id
-        })
+        res.status(201).json(entity)
 
         // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
         //     if (error) {
@@ -85,21 +85,21 @@ class CrudController {
         })
         res.status(200).send(response)
 
-        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
-            if (error) {
-                console.log(error)
-            } else {
-                var payload = {
-                    message : {
-                        entities: entities,
-                        employee: result,
-                        method: "getBatch"
-                    }
+        // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+        //     if (error) {
+        //         console.log(error)
+        //     } else {
+        //         var payload = {
+        //             message : {
+        //                 entities: entities,
+        //                 employee: result,
+        //                 method: "getBatch"
+        //             }
                 
-                }
-                Logger.send(payload)
-            }
-        })
+        //         }
+        //         Logger.send(payload)
+        //     }
+        // })
     }
 
     getOne = async (req, res, next) => {
