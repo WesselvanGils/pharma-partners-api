@@ -23,10 +23,28 @@ const PrescriptionSchema = new Schema({
         type: Date,
         required: [ true, 'A prescription needs to have an ending time.' ],
     },
-    medication: {
-        type: Schema.Types.ObjectId,
-        ref: "medications",
-        autopopulate: true,
+    medication: 
+    {
+        amount:
+        {
+            type: Number,
+            required: [true, "A medication must have an amount"]
+        },
+        index: 
+        {
+            type: Number,
+            required: [true, "A medication must have an index"]
+        },
+        name: 
+        {
+            type: String,
+            required: [true, "A medication needs a name"]
+        },
+        unit:
+        {
+            type: String,
+            required: [true, "A medication needs a unit"]
+        }
     },
 })
 

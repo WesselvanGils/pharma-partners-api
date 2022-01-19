@@ -7,7 +7,7 @@ var configo = {
     token: splunkconfig.key,
     url: splunkconfig.url,
     batchInterval: 1000,
-    maxBatchCount: 10,
+    maxBatchCount: 1,
     maxBatchSize: 1024 // 1kb
 	// Enable SSL certificate validationLogger.requestOptions.strictSSL = true;
 };
@@ -27,6 +27,8 @@ class CrudController {
     // lexical scope for 'this'
     create = async (req, res, next) => {
 
+        console.log(req.body)
+
         const entity = new this.model(req.body)
         await entity.save()
         res.status(201).json(entity)
@@ -39,10 +41,11 @@ class CrudController {
         //             message : {
         //                 entity: entity,
         //                 employee: result,
-        //                 method: "create"
+        //                 method: "create",
         //             }
                 
         //         }
+        //         console.log(payload)
         //         Logger.send(payload)
         //     }
         // })
@@ -52,6 +55,36 @@ class CrudController {
         const entities = await this.model.find()
         res.status(200).send(entities)
 
+        authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
+            if (error) {
+                console.log(error)
+            } else {
+                var payload = {
+                    message : {
+                        entities: entities,
+                        employee: result,
+                        method: "getAll"
+                    }
+                
+                }
+                Logger.send(payload)
+            }
+        })
+    }
+
+    getBatch = async (req, res) =>
+    {
+        const startIndex = req.params.batch * req.params.amount
+        let entities = await this.model.find()
+        let response = []
+
+        await entities.sort((a, b) => {return a.patientNumber - b.patientNumber})
+        await entities.slice(startIndex, startIndex + req.params.amount).map(item =>
+        {
+            response.push(item)
+        })
+        res.status(200).send(response)
+
         // authcontroller.getEmployeeFromToken(req, res, next, (error, result) => {
         //     if (error) {
         //         console.log(error)
@@ -60,13 +93,24 @@ class CrudController {
         //             message : {
         //                 entities: entities,
         //                 employee: result,
-        //                 method: "getAll"
+        //                 method: "getBatch"
         //             }
                 
         //         }
         //         Logger.send(payload)
         //     }
         // })
+    }
+
+    archiveJournals = async (req, res, next) => {
+        await this.model.updateMany({episode: req.params.id}, {isArchived: true, patient: req.params.patient, episode: null}, (err, docs) => {
+            if (err){
+                console.log('error', err)
+            } else {
+                console.log('docs', docs)
+            }
+        })
+        res.status(200).json({message: 'Succesfully archived journals.'}).end()
     }
 
     getOne = async (req, res, next) => {
