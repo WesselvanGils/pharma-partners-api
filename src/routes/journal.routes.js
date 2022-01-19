@@ -10,4 +10,7 @@ router.get("/journals", journalCrudController.getAll);
 // create an journal
 router.post("/journals", journalCrudController.create);
 
+// archive journals 
+router.put("/journals/:id/:patient", journalCrudController.archiveJournals)
+
 module.exports = router;
