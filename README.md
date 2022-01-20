@@ -1,4 +1,4 @@
-# pharma-partners-api
+# Pharma Partners API
 
 The finalizing project for the second period of the second year on Avans Hogeschool. In this repository you will find the back end portion of the application, this includes: The node backend server, splunk logging service and mongoDB connection code. 
 
