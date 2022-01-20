@@ -17,14 +17,14 @@ On this endpoint you'll find all callable endpoint documented in [Swagger](https
 1. Install [MongoDB](https://www.mongodb.com/) (optional if you have an [Atlas](https://www.mongodb.com/atlas/database) database)
 2. In the root directory create a .env file.
 3. In the .env file set up the following variables as follows:  
-  `MONGO_URL="Your Mongo Database URL"`    
-  `MONGO_DB="Your Mongo Database Name"`    
-  `MONGO_TEST_DB="Your Mongo Test Database Name"`  
+`MONGO_URL="Your Mongo Database URL"`    
+`MONGO_DB="Your Mongo Database Name"`    
+`MONGO_TEST_DB="Your Mongo Test Database Name"`  
 
 ## Setting up other envoirment variables
 
-In the .env file you created for your MongoDB connection also configure the following variables
-  `SERVER_SECRET="Your super secret encryption key"`
+In the .env file you created for your MongoDB connection also configure the following variables:  
+  `SERVER_SECRET="Your super secret encryption key"`  
   `PORT="The port you wish to use"`
 
 ## Setting up Splunk
