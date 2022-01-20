@@ -15,7 +15,7 @@ On this endpoint you'll find all callable endpoint documented in [Swagger](https
 ## Connecting to [MongoDB](https://www.mongodb.com/)
 
 1. Install [MongoDB](https://www.mongodb.com/) (optional if you have an [Atlas](https://www.mongodb.com/atlas/database) database)
-2. In the root directory create a .env file.
+2. In the root directory create an .env file.
 3. In the .env file set up the following variables as follows:  
 `MONGO_URL="Your Mongo Database URL"`    
 `MONGO_DB="Your Mongo Database Name"`    
